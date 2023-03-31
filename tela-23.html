@@ -1,0 +1,88 @@
+<div class="largura-1_1">
+    <img style="width:100%; right: 0px;" src="recursos/imgs/DAF_CienciaDados_A4_RIM_Banner.png">
+</div>
+<div class="coluna-esquerda largura-1_2">
+    <div style="width: 97%;margin: 75px auto;">
+        <div class="destaque importante animate__animated animate__backInLeft">
+            <div class="header">
+                <div class="icon" style="height: 29px;"><img
+                        src="recursos/imgs/icones/DAF_CienciaDados_Aula_RIM_Icon_04.svg"></div>
+                <div class="titulo">PARA REFLETIR</div>
+            </div>
+            <div class="corpo" style="height: 170px;">
+                <p>Imagine que estamos tentando predizer o percentual de gordura em adolescentes. Quais variáveis
+                    seriam
+                    úteis no processo de modelagem? Sexo, peso, altura, circunferência da cintura são alguns
+                    exemplos de
+                    bons preditores. Caso o modelo seja capaz de identificar uma boa relação entre essas variáveis e
+                    o
+                    desfecho (percentual de gordura), dado um novo indivíduo com informação para essas medidas,
+                    podemos
+                    obter uma aproximação do seu percentual de gordura usando o modelo que geramos.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="coluna-direita largura-1_2">
+    <div
+        style="width: 97%;margin: 75px auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <img class="animate__animated animate__slideInRight" src="recursos/imgs/aula/DAF_ICD_M1A4_RIM_11_imagem.svg" style="width: 440px;">
+        <p>Ouça a explicação no podcast abaixo:</p>
+        <div style="width: 97%;">
+            <div id="botao_1" class="destaque saibamais animate__animated animate__backInUp">
+                <div class="header">
+                    <div class="icon"><img src="recursos/imgs/icones/DAF_CienciaDados_Aula_RIM_Icon_12.svg"></div>
+                    <div class="titulo" style="background-color: #C23AEF; color: white;">PODCAST 1</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="jan" id="janela_1" style="cursor: pointer;">
+        <div
+            style="display: flex;position: absolute;width: 610px;height: 210px;background: #CC6155;border-radius: 5px;top: 145px;left: 140px;cursor: pointer;justify-content: space-around;align-items: center;">
+            <audio class="anime fadeIn-up" id="audio_1" controls="" style="width: 80%;" controlslist="nodownload">
+                <source src="recursos/audios/DAF_ICD_M1A4_RAU_02.mp3" type="audio/mpeg">
+            </audio>
+            <p style="position: absolute;color: white;font-size: 20px;top: -17px;right: 11px;">x</p>
+        </div>
+    </div>
+</div>
+<footer class="bg-footer rodape" style="background-color: var(--marrom1);">
+    <div>
+        <p><b>AULA 04</b> Conceitos de Modelagem</p>
+    </div>
+    <div>
+        <p><b>CURSO</b> Introdução à Ciência de Dados</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            $("audio").each(function () {
+                this.pause();
+                this.currentTime = 0;
+            });
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

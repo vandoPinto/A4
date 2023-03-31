@@ -1,0 +1,74 @@
+<div class="largura-1_1">
+    <img style="width:100%; right: 0px;" src="recursos/imgs/DAF_CienciaDados_A4_RIM_Banner.png">
+</div>
+<div class="coluna-esquerda largura-1_1 ">
+    <div style="margin: 20px;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <p style="text-align: center;">Esse processo de avaliar a relação entre duas variáveis é conhecido como
+            análise
+            bivariada.<br> Clique na
+            imagem a seguir para entender mais sobre esse processo:</p>
+
+        <img id="botao_1" style="margin: 30px auto; width: 50%; cursor: pointer;"
+            src="recursos/imgs/aula/DAF_ICD_M1A4_RIM_06_Interativa/DAF_ICD_M1A4_RIM_06_Interativa.svg" width="80%">
+        <img style="position: absolute;top: 171px;z-index: -1;width: 50%;"
+            src="recursos/imgs/aula/DAF_ICD_M1A4_RIM_06_Interativa/img/flash0.ai/Camada_2/Image.png" width="80%">
+
+    </div>
+</div>
+<div>
+    <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+        <div
+            style="display: flex;position: absolute;width: 610px;height: 210px;background: #CC6155;border-radius: 5px;top: 145px;left: 140px;cursor: pointer;justify-content: space-around;align-items: center;">
+            <div style="margin: 10px;">
+                <p style="color: white;">É comum realizarmos diversas análises bivariadas, uma para cada
+                    exposição de interesse no estudo, principalmente quando sabemos ou esperamos que existam
+                    relações
+                    entre elas. Isso ajuda no processo de validar tanto a qualidade de nossas variáveis quanto da
+                    amostra de indivíduos com a qual estamos trabalhando.
+                </p>
+                <p style="color: white;"><b>Para reflexão:</b> Então um cientista de dados realiza uma análise
+                    exploratória, identifica variáveis de
+                    interesse, como, por exemplo, ter contraído a doença e qual medicamento foi utilizado, calcula
+                    uma
+                    medida de efeito entre as variáveis e avalia se existe uma associação estatística entre elas
+                    utilizando testes de hipóteses, certo? Bom... na prática, não. Ou pelo menos a última parte
+                    costuma
+                    ser feita de forma diferente. Vamos entender melhor a seguir!</p>
+            </div>
+            <p style="position: absolute;color: white;font-size: 20px;top: -17px;right: 11px;">x</p>
+        </div>
+    </div>
+</div>
+<footer class="bg-footer rodape" style="background-color: var(--marrom1);">
+    <div>
+        <p><b>AULA 04</b> Conceitos de Modelagem</p>
+    </div>
+    <div>
+        <p><b>CURSO</b> Introdução à Ciência de Dados</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

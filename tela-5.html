@@ -1,0 +1,74 @@
+<div class="largura-1_1">
+    <img style="width:100%; right: 0px;" src="recursos/imgs/DAF_CienciaDados_A4_RIM_Banner.png">
+</div>
+<div class="coluna-esquerda largura-1_2">
+    <div style="width: 78%;margin: 24px auto;">
+        <h1>1. Introdução</h1>
+        <p>Na aula anterior, realizamos o nosso primeiro conjunto de análises, produzindo diversos tipos de gráficos
+            e
+            tabelas que nos ajudam a compreender os dados com os quais estamos trabalhando. Essa exploração é
+            extremamente importante independentemente de termos participado do processo de coleta dos dados ou de
+            termos
+            recebido um banco de dados pré-processado. Assim, podemos avançar com mais segurança em direção a
+            análises
+            específicas, que vão exigir que tenhamos conhecimento sobre o dado avaliado e suas limitações.</p>
+        <p>Nesta aula,
+            aprenderemos alguns conceitos relacionados a modelos estatísticos e de computação que são frequentemente
+            utilizados na ciência de dados para extrair conhecimento que pode ser útil no processo de tomada de
+            decisão.</p>
+    </div>
+</div>
+<div class="coluna-direita largura-1_2">
+    <div style="width: 88%;margin: 115px auto;">
+        <div class="destaque importante animate__animated animate__backInRight">
+            <div class="header">
+                <div class="icon"><img src="recursos/imgs/icones/DAF_CienciaDados_Aula_RIM_Icon_04.svg"></div>
+                <div class="titulo">Importante!</div>
+            </div>
+            <div class="corpo">
+                <p>Essas análises específicas, baseadas em modelos, dividem-se em dois grandes grupos de acordo com
+                    o
+                    objetivo da investigação: <span id="hotWord-bt_1"
+                        style="background-color:var(--marrom1) !important; color: white !important;">explicação</span>
+                    ou
+                    <span id="hotWord-bt_2"
+                        style="background-color:var(--marrom1) !important; color: white !important;">predição</span>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-footer rodape" style="background-color: var(--marrom1);">
+    <div>
+        <p><b>AULA 04</b> Conceitos de Modelagem</p>
+    </div>
+    <div>
+        <p><b>CURSO</b> Introdução à Ciência de Dados</p>
+    </div>
+</footer>
+<div id="conteudo_1"
+    style="position: absolute; top: 81px; left: 500px; width: 355px; height: 120px; background: 0% 0% no-repeat padding-box padding-box #63BC98; display: flex; align-items: center; justify-content: center; padding: 10px;">
+    <p style="color: white;">Quando estamos lidando com modelos explicativos, estamos interessados na relação entre
+        uma ou mais variáveis e o nosso desfecho. Essa relação é quantificada utilizando medidas de efeito, como o risco
+        relativo, razão de chances ou razão de prevalência. </p>
+</div>
+<div id="conteudo_2"
+    style="position: absolute; top: 81px; left: 500px; width: 355px; height: 120px; background: 0% 0% no-repeat padding-box padding-box #63BC98; display: flex; align-items: center; justify-content: center; padding: 10px;">
+    <p style="color: white;">Em análises preditivas, por sua vez, buscamos um modelo que seja capaz de entender o
+        nosso desfecho e calcular ele para dados <b>não observados</b>. Essa estratégia utiliza variáveis relacionadas
+        ao nosso
+        desfecho para calcular uma estimativa próxima do que seria observado, caso esse dado existisse.</p>
+</div>
+<script>
+    $(() => {
+        let conteudo = $(document).find('[id^=conteudo]').hide();
+        let botoes = $(document).find('[id^=hotWord-bt]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer').hover(() => {
+                $(document).find(`[id=conteudo_${index + 1}]`).fadeIn();
+            })
+            $(botao).mouseout(() => {
+                $(document).find(`[id=conteudo_${index + 1}]`).fadeOut()
+            })
+        })
+    })
+</script>

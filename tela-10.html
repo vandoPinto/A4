@@ -1,0 +1,87 @@
+<div class="largura-1_1">
+    <img style="width:100%; right: 0px;" src="recursos/imgs/DAF_CienciaDados_A4_RIM_Banner.png">
+</div>
+<div class="coluna-esquerda largura-1_1 ">
+    <div style="width: 78%;margin: 35px auto;">
+        <p>Os termos desfecho e exposição são muito utilizados na literatura médica. Entretanto, existem diversas
+            formas
+            de se referir a essas variáveis quando estamos trabalhando com análises na ciência de dados.
+        </p>
+    </div>
+</div>
+<div class="largura-1_1"
+    style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-top: 150px;">
+    <img class="animate__animated animate__slideInUp" src="recursos/imgs/aula/DAF_ICD_M1A4_RAN_01_Interativo/DAF_ICD_M1A4_RAN_01_bg.svg" style="width: 280px;">
+    <div class="animate__animated animate__slideInUp"
+        style="position: absolute;top: 270px;display: flex;left: 240px;width: 415px;align-items: center;justify-content: space-around;">
+        <img id="botao_1" src="recursos/imgs/aula/DAF_ICD_M1A4_RAN_01_Interativo/DAF_ICD_M1A4_RAN_01_BTN2.svg"
+            style="width: 70px;">
+        <img src="recursos/imgs/aula/DAF_ICD_M1A4_RAN_01_Interativo/DAF_ICD_M1A4_RAN_01_BTN1.svg"
+            style="margin-top: -196px;width: 70px;">
+        <img id="botao_2" src="recursos/imgs/aula/DAF_ICD_M1A4_RAN_01_Interativo/DAF_ICD_M1A4_RAN_01_BTN3.svg"
+            style="width: 70px;">
+    </div>
+</div>
+<div>
+    <div class="jan" id="janela_1" style="cursor: pointer;">
+        <div
+            style="display: flex;position: absolute;width: 520px;height: 200px;background: #E2EEFF;border-radius: 5px;top: 165px;left: 180px;justify-content: center;">
+            <div style="display: flex;justify-content: space-around;align-items: center;">
+                <div style="width: 4px;height: 100%;background-color: #5683C3;position: absolute;top: 0px;left: 0px;">
+                </div>
+                <img src="recursos/imgs/aula/DAF_ICD_M1A4_RAN_01_Interativo/DAF_ICD_M1A4_RAN_01_BTN2.svg"
+                    style="width: 110px;">
+                <p style="width: 60%;"><b>DESFECHO PODE SER:</b> <br>variável dependente, resposta, Y, atributo-alvo,
+                    variável de saída.</p>
+            </div>
+            <p style="position: absolute;color: white;font-size: 20px;top: -17px;right: 11px;">x</p>
+        </div>
+    </div>
+    <div class="jan" id="janela_2" style="cursor: pointer;">
+        <div
+            style="display: flex;position: absolute;width: 520px;height: 200px;background: #E4FFF4;border-radius: 5px;top: 165px;left: 180px;justify-content: center;">
+            <div style="display: flex;justify-content: space-around;align-items: center;">
+                <div style="width: 4px;height: 100%;background-color: #63BC98;position: absolute;top: 0px;left: 0px;">
+                </div>
+                <img src="recursos/imgs/aula/DAF_ICD_M1A4_RAN_01_Interativo/DAF_ICD_M1A4_RAN_01_BTN3.svg"
+                    style="width: 110px;">
+                <p style="width: 60%;"><b>EXPOSIÇÃO PODE SER:</b> <br>variável independente, variável explicativa, X,
+                    preditor, covariável, variável de entrada.</p>
+            </div>
+            <p style="position: absolute;color: white;font-size: 20px;top: -17px;right: 11px;">x</p>
+        </div>
+    </div>
+</div>
+<footer class="bg-footer rodape" style="background-color: var(--marrom1);">
+    <div>
+        <p><b>AULA 04</b> Conceitos de Modelagem</p>
+    </div>
+    <div>
+        <p><b>CURSO</b> Introdução à Ciência de Dados</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

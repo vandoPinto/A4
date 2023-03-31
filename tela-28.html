@@ -1,0 +1,77 @@
+<div class="largura-1_1">
+    <img style="width:100%; right: 0px;" src="recursos/imgs/DAF_CienciaDados_A4_RIM_Banner.png">
+</div>
+<div class="coluna-esquerda largura-1_3 ">
+    <img src="recursos/imgs/DAF_CienciaDados_A1_RIM_Misc_02.svg" style="width: 100%;height: 366px;"
+        class="animate__animated animate__slideInDown">
+</div>
+<div class="coluna-direita largura-2_3">
+    <div style="width: 87%;margin: 30px auto;">
+        <p>Mas será que tudo são flores? O papel do cientista de dados, dando uma boa ênfase em ciência, é ser capaz
+            de
+            analisar criticamente os resultados que são produzidos e comunicar claramente tanto os achados quanto as
+            limitações existentes. O rigor metodológico e a capacidade de “pensar fora da caixa” são essenciais para
+            evitar que os resultados sejam interpretados de forma equivocada.</p>
+        <div style="width: 97%;margin: 40px auto;">
+            <div id="botao_1" class="destaque pararefletir animate__animated animate__backInRight">
+                <div class="header">
+                    <div class="icon"><img src="recursos/imgs/icones/DAF_CienciaDados_Aula_RIM_Icon_12.svg"></div>
+                    <div class="titulo" style="background-color: #C23AEF; color: white;">PODCAST 1</div>
+                </div>
+            </div>
+        </div>
+        <p>Por exemplo, o algoritmo de recrutamento de uma gigante da tecnologia desfavorecia mulheres no seu
+            processo
+            de seleção, e o algoritmo COMPAS, utilizado no sistema de justiça norte-americano, classificava
+            sistematicamente pessoas negras como indivíduos com maiores chances de cometerem crimes reincidentes.
+        </p>
+    </div>
+</div>
+<div>
+    <div class="jan" id="janela_1" style="cursor: pointer;">
+        <div
+            style="display: flex;position: absolute;width: 610px;height: 210px;background: #CC6155;border-radius: 5px;top: 145px;left: 140px;cursor: pointer;justify-content: space-around;align-items: center;">
+            <audio class="anime fadeIn-up" id="audio_1" controls="" style="width: 80%;" controlslist="nodownload">
+                <source src="recursos/audios/DAF_ICD_M1A4_RAU_03.mp3" type="audio/mpeg">
+            </audio>
+            <p style="position: absolute;color: white;font-size: 20px;top: -17px;right: 11px;">x</p>
+        </div>
+    </div>
+</div>
+<footer class="bg-footer rodape" style="background-color: var(--marrom1);">
+    <div>
+        <p><b>AULA 04</b> Conceitos de Modelagem</p>
+    </div>
+    <div>
+        <p><b>CURSO</b> Introdução à Ciência de Dados</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            $("audio").each(function () {
+                this.pause();
+                this.currentTime = 0;
+            });
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
